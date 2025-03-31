@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'messages/create'
-  get 'rooms/index'
-  get 'rooms/show'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'rooms#index'
+
+  resources :rooms, only: [:index, :show, :create] do
+    resources :messages, only: [:create]
+  end
+  resources :users, only: [:show]
 end
