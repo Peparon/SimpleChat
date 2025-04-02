@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'rooms#index'
 
   resources :rooms, only: [:index, :show, :create] do
-    resources :messages, only: [:create]
+    resources :messages, only: [:index, :create]
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 end
