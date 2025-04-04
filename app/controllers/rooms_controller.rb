@@ -2,7 +2,11 @@ class RoomsController <
   before_action :authenticate_user!
 
   def index
-    @rooms = Room.all
+    @users = User.where.not(id: current_user.id)
+  end
+
+  def create
+    @user = User.find(params[:id])
   end
 
   def show
