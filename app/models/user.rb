@@ -14,5 +14,7 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   
-  validates :name, presence: true
+  def approved_friends
+    friends.merge(Friendship.where(status: 'approved')) + inverse_friends.merge(Friendship.where(status: 'approved'))
+  end
 end

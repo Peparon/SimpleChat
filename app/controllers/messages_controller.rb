@@ -3,9 +3,9 @@ class MessagesController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
-
     unless @room.users.include?(current_user)
-      redirect_to root_path, alert: '不正なアクセスです' and return
+      redirect_to root_path, alert: '不正なアクセスです'
+      return
     end
     @message = @room.messages.new(message_params)
     @message.user = current_user

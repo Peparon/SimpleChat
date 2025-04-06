@@ -1,8 +1,8 @@
 class Friendship < ApplicationRecord
   belongs_to :user
-  belongs_to :friend, class_name: "User"
+  belongs_to :room
   
-  enum status: { pending: 0, accepted: 1, rejected: 2 }
+  # enum status: { pending: 0, accepted: 1, rejected: 2 }
   
-  validates :user_id, uniqueness: { scope: :friend_id }
+  validates :content, presence: true
 end
