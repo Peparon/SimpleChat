@@ -1,4 +1,4 @@
-class RoomsController <
+class RoomsController < ApplicationController
   before_action :authenticate_user!
   
   def index
@@ -7,25 +7,22 @@ class RoomsController <
   
   def show
     @room = Room.find(params[:id])
-    unless @room.users.include?(current_user)
-      redirect_to root_path, alert: 'アクセスできません'
-      return
+    if @room.users.include?(current_user)
+      @messages = @room.messages.includes(:user)
+      @message = Message.new
+    else
+      redirect_to root_path, alert: "アクセスできません"
     end
-    @message = Message.new
-    @messages = @room.messages.includes(:user)
-    @friend = @room.other_user(current_user)
   end
   
   def create
-    friend = User.find(params[:user_id])
-    room = current_user.existing_room_with(friend)
-    if room
-      redirect_to room_path(room)
+    @room = Room.new
+    if @room.save
+      RoomUser.create(user_id: current_user.id, room_id: @room.id)
+      RoomUser.create(user_id: params[:user_id], room_id: @room.id)
+      redirect_to @room
     else
-      room = Room.create!
-      room.room_users.create!(user: current_user)
-      room.room_users.create!(user: friend)
-      redirect_to room_path(room)
+      redirect_to users_path, alert: "ルーム作成に失敗しました"
     end
   end
 end

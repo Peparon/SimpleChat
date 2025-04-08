@@ -3,8 +3,8 @@ class FriendshipsController < ApplicationController
 
   def create
     friend = User.find(params[:friend_id])
-    current_user.friendships.create(friend: friend, status: :pending)
-    redirect_to users_path, notice: '申請を送りました'
+    current_user.friendships.create(friend: friend)
+    redirect_to user_path, notice: "申請を送りました"
   end
 
   def update
