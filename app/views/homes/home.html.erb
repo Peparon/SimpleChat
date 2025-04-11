@@ -1,0 +1,14 @@
+<div class="home-page-container">
+  <%= render partial: "sidebar" %>
+
+  <div class="main-content">
+    <% if params[:mode] == 'group' %>
+      <div class="coming-soon">
+        <h2>Coming Soon</h2>
+        <p>この機能は開発中です！</p>
+      </div>
+    <% else %>
+      <p class="info-message">アイコンを押してメニューを開いて下さい</p>
+    <% end %>
+  </div>
+</div>

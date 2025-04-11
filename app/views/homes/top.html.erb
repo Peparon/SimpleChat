@@ -1,2 +1,10 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4 text-center" style="width: 100%; max-width: 400px;">
+    <h1 class="mb-3">Welcome to SimpleChat!</h1>
+    <p class="text-center mt-4">シンプルで直感的なチャットをあなたに。</p>
+    <div class="d-grid gap-3">
+      <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary btn-lg' %></br>
+      <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-secondary btn-lg' %>
+    </div>
+  </div>
+</div>

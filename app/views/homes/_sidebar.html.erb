@@ -1,0 +1,54 @@
+<% current_mode = params[:mode] %>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <%= link_to home_path, class:"icon-button" do %>
+      <% if current_mode == "friends" %>
+        <i class="fas fa-user"></i>
+        <span class="sidebar-title">友人</span>
+      <% elsif current_mode == "group" %>
+        <i class="fas fa-users"></i>
+        <span class="sidebar-title">グループ</span>
+      <% else %>
+        <i class="fas fa-cog"></i>
+        <span class="sidebar-title">ユーザー設定</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="icon-menu">
+    <ul>
+      <% if current_mode.blank? %>
+        <!--1人アイコン-->
+        <li>
+          <%= link_to home_path(mode: "friends"), class: "icon-button" do %>
+            <i class="fas fa-user"></i>
+          <% end %>
+        </li>
+        <!--多人数アイコン-->
+        <li>
+          <%= link_to home_path(mode: "group"), class: "icon-button" do %>
+            <i class="fas fa-users"></i>
+          <% end %>
+        </li>
+        <!--設定アイコン-->
+        <li>
+          <%= link_to edit_user_registration_path, class: "icon-button" do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="sidebar-content">
+    <% if current_mode == "friends" %>
+      <%= render partial: "friendships/friend_list", locals: { friends: @friends } %>
+    <% elsif current_mode == "group" %>
+      <div class="coming-soon">
+        <h2>Coming Soon</h2>
+        <p>この機能は開発中です！</p>
+      </div>
+    <% end %>
+  </div>
+</div>
