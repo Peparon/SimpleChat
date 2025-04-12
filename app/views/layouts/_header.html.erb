@@ -1,5 +1,24 @@
-<header class="simplechat-header text-center py-3 bg-light shadow-sm">
-  <h1 class="m-0">
+<header class="simplechat-header py-3 bg-light shadow-sm position-relative d-flex align-items-center">
+  <!-- 左側のアイコン -->
+  <div class="header-icons d-flex gap-3 position-absolute start-0 ps-3">
+    <!-- 友人アイコン -->
+    <%= link_to home_path(mode: "friends"), class: "icon-button" do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+
+    <!-- グループアイコン -->
+    <%= link_to home_path(mode: "group"), class: "icon-button" do %>
+      <i class="fas fa-users"></i>
+    <% end %>
+
+    <!-- 設定アイコン -->
+    <%= link_to home_path(mode: "setting"), class: "icon-button" do %>
+      <i class="fas fa-cog"></i>
+    <% end %>
+  </div>
+
+  <!-- 中央のタイトル -->
+  <h1 class="m-0 w-100 text-center">
     <%= link_to "SimpleChat", home_path, class: "app-title text-decoration-none" %>
   </h1>
 </header>

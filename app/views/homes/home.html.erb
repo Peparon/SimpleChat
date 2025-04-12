@@ -7,8 +7,10 @@
         <h2>Coming Soon</h2>
         <p>この機能は開発中です！</p>
       </div>
+    <% elsif params[:mode] == "setting" %>
+      <%= render "users/edit", user: current_user %>
     <% else %>
-      <p class="info-message">アイコンを押してメニューを開いて下さい</p>
+      <p class="info-message">アイコンを選択してメニューを開いて下さい</p>
     <% end %>
   </div>
 </div>
