@@ -4,20 +4,20 @@
   <div class="sidebar-header">
     <% if current_mode == "friends" %>
       <div class="sidebar-title-row">
-        <span class="sidebar-title">友人</span>
+        <span class="sidebar-title"><i class="fas fa-user"></i> 友人</span>
         <%= link_to home_path(mode: "friends", submode: "search"), class: "add-icon" do %>
           <i class="fas fa-plus-circle"></i>
         <% end %>
       </div>
     <% elsif current_mode == "group" %>
       <div class="sidebar-title-row">
-        <span class="sidebar-title">グループ</span>
+        <span class="sidebar-title"><i class="fas fa-users"></i> グループ</span>
         <div class="add-icon">
           <i class="fas fa-plus-circle"></i>
         </div>
       </div>
     <% elsif current_mode == "setting" %>
-      <span class="sidebar-title">ユーザー設定</span>
+      <span class="sidebar-title"><i class="fas fa-cog"></i> ユーザー設定</span>
     <% end %>
   </div>
 

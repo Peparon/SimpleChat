@@ -86,6 +86,11 @@
   text-decoration: none;
 }
 
+.friend-link.selected {
+  background-color: #e6e6e6;
+  border: 2px solid #000000;
+}
+
 .small-card {
   font-size: 0.875rem;
   padding: 8px;

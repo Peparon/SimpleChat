@@ -8,10 +8,10 @@ class FriendshipsController < ApplicationController
     render "homes/home"
   end
 
-  def index
+  # def index
   #   @approved_friends = current_user.friendships.where(status: :approved).map(&:friend)
   #   @pending_friends = current_user.friendships.where(status: :peding).map(&:friend)
-  end
+  # end
 
   # def create
   #   friend = User.find(params[:friend_id])

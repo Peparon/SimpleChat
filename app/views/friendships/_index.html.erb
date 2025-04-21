@@ -1,11 +1,12 @@
 <% all_friends = friends.uniq.to_a %>
-<% if @selected_friend.present? && all_friends.none? { |f| f.id == @selected_friend.id } %>
+<% if @selected_friend.present? %>
+  <% all_friends.reject! { |f| f.id == @selected_friend.id } %>
   <% all_friends.unshift(@selected_friend) %>
 <% end %>
 
 <% if friends.present? %>
   <% all_friends.each do |friend| %>
-    <%= link_to home_path(mode: "friends", selected_friend_id: friend.id), class: "friend-link card p-1 small-card #{'selected' if friend == @selected_friend}" do %>
+    <%= link_to home_path(mode: "friends", selected_friend_id: friend.id), class: "friend-link card p-1 small-card mb-2 #{'selected' if friend == @selected_friend}" do %>
       <p><strong>友人ID:</strong> <%= friend.friend_id %></p>
       <p><strong>名前:</strong> <%= friend.name %></p>
     <% end %>
