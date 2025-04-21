@@ -23,6 +23,11 @@
         <%= f.password_field :password_confirmation, class: "form-control", auticomplete: "new-password" %>
       </div>
 
+      <div class="mb-3">
+        <%= f.label :current_password, "現在のパスワード", class: "form-label" %><br />
+        <%= f.password_field :current_password, class: "form-control", auticomplete: "current-password" %>
+      </div>
+
       <div class="actions">
         <%= f.submit "変更", class: "btn btn-secondary btn-block" %>
       </div>

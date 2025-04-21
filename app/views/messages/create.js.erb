@@ -1,0 +1,15 @@
+<!--メッセージ追加-->
+$("#chat-messages").append(`
+  <div class="d-flex flex-column align-items-end">
+    <div class="chat-bubble my-message">
+      <p class="mb-0"><%= j @message.content %></p>
+    </div>
+    <small class="text-muted text-end d-block mt-1"><%= @message.created_at.strftime("%H:%M") %></small>
+  </div>
+`);
+
+<!--入力クリア-->
+$("textarea[name='message[content]']").val("");
+
+<!--下部までスクロール-->
+$("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);

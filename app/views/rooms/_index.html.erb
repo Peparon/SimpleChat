@@ -1,0 +1,30 @@
+<!--rooms/_index-->
+<% if @room.present? %>
+  <div id="chat-room-container" class="container-fluid p-0 d-flex flex-column">
+    <div class="chat-header p-3 bg-white sticky-top z-3">
+      <h5 class="mb-0"><%= @selected_friend.name %>さん</h5>
+    </div>
+
+    <div class="chat-messages border rounded shadow flex-grow-1 overflow-auto px-3 py-2" id="chat-messages">
+      <% @messages.each do |message| %>
+        <div class="d-flex flex-column <%= message.user == current_user ? 'align-items-end' : 'align-items-start' %>">
+          <div class="chat-bubble <%= message.user == current_user ? 'my-message' : 'other-message' %>">
+            <p class="mb-0"><%= message.content %></p>
+          </div>
+          <small class="text-muted text-end d-block mt-1"><%= message.created_at.strftime("%H:%M") %></small>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="chat-form bg-white p-3 sticky-bottom">
+      <%= form_with model: [@room, @message], remote: true, class: "d-flex" do |f| %>
+        <%= f.text_area :content, rows: 1, class: "form-control me-2", placeholder: "メッセージを入力...", style: "resize: none;" %>
+        <%= f.submit "送信", class: "btn btn-secondary" %>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="alert mt-4 text-center">
+    <p>チャットする友人を選択して下さい</p>
+  </div>
+<% end %>

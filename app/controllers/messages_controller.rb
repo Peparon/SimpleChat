@@ -3,17 +3,15 @@ class MessagesController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
-    if @room.users.include?(current_user)
-      @message = @room.messages.build(message_params)
-      @message.user = current_user
+    @message = @room.messages.build(message_params)
+    @message.user = current_user
+
+    respond_to do |format|
       if @message.save
-        redirect_to room_path(@room)
+        format.js
       else
-        @messages = @room.messages.includes(:user)
-        render "rooms/show"
+        format.js { render js: "alert('メッセージを送信できませんでした');" }
       end
-    else
-      redirect_to root_path, alert: "アクセスできません"
     end
   end
 

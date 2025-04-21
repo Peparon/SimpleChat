@@ -1,28 +1,29 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @rooms = current_user.rooms
+    @rooms = Room.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
   end
-  
+
   def show
     @room = Room.find(params[:id])
-    if @room.users.include?(current_user)
+    if [@room.sender, @room.receiver].include?(current_user)
+      @partner = @room.partner_of(current_user)
       @messages = @room.messages.includes(:user)
       @message = Message.new
     else
       redirect_to root_path, alert: "アクセスできません"
     end
   end
-  
+
   def create
-    @room = Room.new
-    if @room.save
-      RoomUser.create(user_id: current_user.id, room_id: @room.id)
-      RoomUser.create(user_id: params[:user_id], room_id: @room.id)
-      redirect_to @room
-    else
-      redirect_to users_path, alert: "ルーム作成に失敗しました"
+    other_user = User.find(params[:user_id])
+    @room = Room.find_or_create_by_users(current_user, other_user)
+
+    unless current_user.friends.include?(other_user) || current_user.inverse_friends.include?(other_user)
+      Friendship.create(user: current_user, friend: other_user, status: 'approved')
     end
+
+    redirect_to room_path(@room)
   end
 end

@@ -1,5 +1,5 @@
 <div class="home-page-container">
-  <%= render partial: "sidebar" %>
+  <%= render partial: "homes/sidebar" %>
 
   <div class="main-content">
     <% if params[:mode] == 'group' %>
@@ -7,10 +7,23 @@
         <h2>Coming Soon</h2>
         <p>この機能は開発中です！</p>
       </div>
+
+    <% elsif params[:mode] == "setting" && params[:submode] == "edit" %>
+      <%= render "users/show", user: current_user %>
+      <%= render "devise/registrations/edit", user: current_user %>
+
     <% elsif params[:mode] == "setting" %>
-      <%= render "users/edit", user: current_user %>
+      <%= render "users/show", user: current_user %>
+
+    <% elsif params[:mode] == "friends" %>
+      <% if @show_friend_search %>
+        <%= render "friendships/search", friend: @friend %>
+      <% else %>
+        <%= render "rooms/index", friend: @selected_friend %>
+      <% end %>
+
     <% else %>
-      <p class="info-message">アイコンを選択してメニューを開いて下さい</p>
+      <p class="home-message">アイコンを選択してメニューを開いて下さい</p>
     <% end %>
   </div>
 </div>

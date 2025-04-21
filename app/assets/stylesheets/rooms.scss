@@ -1,3 +1,53 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#chat-room-container {
+  height: 85vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+#chat-messages {
+  // min-height: 300px;
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  background-color: #e4e6eb;
+  word-break: break-word;
+}
+
+.chat-bubble .text-end {
+  margin-top: 4px;
+}
+
+.my-message {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+}
+
+.other-message {
+  background-color: #f1f0f0;
+  align-self: flex-start;
+}
+
+.chat-form {
+  position: relative;
+}
