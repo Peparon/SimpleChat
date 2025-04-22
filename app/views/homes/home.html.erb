@@ -22,6 +22,9 @@
         <%= render "rooms/index", friend: @selected_friend %>
       <% end %>
 
+    <% elsif params[:mode] == "credit" %>
+      <%= render "layouts/credits/credit" %>
+
     <% else %>
       <p class="home-message">アイコンを選択してメニューを開いて下さい</p>
     <% end %>

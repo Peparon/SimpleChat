@@ -5,6 +5,8 @@ class HomesController < ApplicationController
   end
 
   def home
+    clean_old_rooms
+
     if params[:mode] == "friends"
       @friends = current_user.approved_friends
       @show_friend_search = params[:submode] == "search"
@@ -43,6 +45,17 @@ class HomesController < ApplicationController
 
     elsif params[:mode] == "setting"
       @user = current_user
+    end
+  end
+
+  def clean_old_rooms
+    Room.includes(:messages).find_each do |room|
+      last_message = room.messages.order(created_at: :desc).first
+      if last_message && last_message.created_at < 144.hours.ago
+        puts "#{room.id}(#{last_message.created_at})"
+        room.messages.destroy_all
+        room.destroy
+      end
     end
   end
 end

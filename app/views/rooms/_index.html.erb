@@ -16,7 +16,7 @@
       <% end %>
     </div>
 
-    <div class="chat-form bg-white p-3 sticky-bottom">
+    <div class="chat-form bg-white sticky-bottom">
       <%= form_with model: [@room, @message], remote: true, class: "d-flex" do |f| %>
         <%= f.text_area :content, rows: 1, class: "form-control me-2", placeholder: "メッセージを入力...", style: "resize: none;" %>
         <%= f.submit "送信", class: "btn btn-secondary" %>

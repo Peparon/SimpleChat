@@ -18,6 +18,8 @@
       </div>
     <% elsif current_mode == "setting" %>
       <span class="sidebar-title"><i class="fas fa-cog"></i> ユーザー設定</span>
+    <% elsif current_mode == "credit" %>
+      <span class="sidebar-title"><i class="fas fa-info-circle"></i> CREDIT</span>
     <% end %>
   </div>
 
@@ -35,6 +37,10 @@
         <div class="sidebar-footer">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
         </div>
+      </div>
+    <% elsif current_mode == "credit" %>
+      <div>
+        <%= render "layouts/credits/index" %>
       </div>
     <% end %>
   </div>
