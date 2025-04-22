@@ -1,34 +1,38 @@
-<div class="search-container">
-  <h2 class="search-title">友人検索</h2>
+<div class="container my-4">
+  <div class="col-12 col-sm-10 col-md-8 mx-auto">
+    <div class="search-container">
+      <h2 class="search-title">友人検索</h2>
 
-  <div class="search-box">
-    <%= form_with url: home_path(mode: "friends", submode: "search"), method: :get, local: true do |f| %>
-      <%= hidden_field_tag :mode, "friends" %>
-      <%= hidden_field_tag :submode, "search" %>
-      <div class="form-group">
-        <%= label_tag :friend_id, "検索したい友人のIDを入力して下さい" %><br />
-        <%= text_field_tag :friend_id, params[:friend_id], class: "search-input" %>
-      </div>
-      <%= submit_tag "検索する", class: "btn btn-secondary" %>
-    <% end %>
-  </div>
-
-  <% if @friend.present? %>
-    <div class="search-result-container">
-      <div class="user-card">
-        <% if current_user == @friend %>
-          <p><strong>友人ID:</strong> <%= @friend.friend_id %></p>
-          <p><strong>名前:</strong> <%= @friend.name %></p>
-          <p class="info-message">これはあなた自身です</p>
-        <% else %>
-          <%= link_to home_path(mode: "friends", selected_friend_id: @friend.id), class: "user-card-link" do %>
-            <p><strong>友人ID:</strong> <%= @friend.friend_id %></p>
-            <p><strong>名前:</strong> <%= @friend.name %></p>
-          <% end %>
+      <div class="search-box">
+        <%= form_with url: home_path(mode: "friends", submode: "search"), method: :get, local: true do |f| %>
+          <%= hidden_field_tag :mode, "friends" %>
+          <%= hidden_field_tag :submode, "search" %>
+          <div class="form-group">
+            <%= label_tag :friend_id, "検索したい友人のIDを入力して下さい" %><br />
+            <%= text_field_tag :friend_id, params[:friend_id], class: "search-input" %>
+            <%= submit_tag "検索する", class: "btn btn-secondary" %>
+          </div>
         <% end %>
       </div>
+
+      <% if @friend.present? %>
+        <div class="search-result-container">
+          <div class="user-card">
+            <% if current_user == @friend %>
+              <p><strong>友人ID:</strong> <%= @friend.friend_id %></p>
+              <p><strong>名前:</strong> <%= @friend.name %></p>
+              <p class="info-message">これはあなた自身です</p>
+            <% else %>
+              <%= link_to home_path(mode: "friends", selected_friend_id: @friend.id), class: "user-card-link" do %>
+                <p><strong>友人ID:</strong> <%= @friend.friend_id %></p>
+                <p><strong>名前:</strong> <%= @friend.name %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% elsif params[:friend_id].present? %>
+        <p class="not-found-message">ユーザーが見つかりませんでした</p>
+      <% end %>
     </div>
-  <% elsif params[:friend_id].present? %>
-    <p class="not-found-message">ユーザーが見つかりませんでした</p>
-  <% end %>
+  </div>
 </div>

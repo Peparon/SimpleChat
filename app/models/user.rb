@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :room_users
   has_many :rooms, through: :room_users
 
+  validates :name, presence: true, length: { maximum: 10 }
+
   before_create :generate_unique_friend_id
 
   def approved_friends

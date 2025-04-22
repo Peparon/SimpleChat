@@ -137,7 +137,7 @@ html, body {
   padding: 2rem;
   height: 100vh;
   background-color: #ffffff;
-  overflow-y: auto;
+  overflow-y: hidden !important;
   display: flex;
   justify-content: center;
 }
