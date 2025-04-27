@@ -1,6 +1,14 @@
-<% current_mode = params[:mode] %>
+<% current_mode = params[:mode] || (params[:effect].present? ? "credit" : nil) %>
 
-<div class="sidebar">
+<div class="mobile-header">
+  <button class="hamburger-menu d-md-none" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-th-list"></i>
+  </label>
+</div>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="sidebar collapse d-md-block" id="sidebarCollapse">
   <div class="sidebar-header">
     <% if current_mode == "friends" %>
       <div class="sidebar-title-row">
@@ -39,9 +47,7 @@
         </div>
       </div>
     <% elsif current_mode == "credit" %>
-      <div>
-        <%= render "layouts/credits/index" %>
-      </div>
+      <%= render "layouts/credits/index" %>
     <% end %>
   </div>
 </div>

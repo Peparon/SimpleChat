@@ -23,7 +23,11 @@
       <% end %>
 
     <% elsif params[:mode] == "credit" %>
-      <%= render "layouts/credits/credit" %>
+      <% if params[:effect].present? %>
+        <%= render "layouts/credits/#{params[:effect]}" rescue nil %>
+      <% else %>
+        <%= render "layouts/credits/credit" %>
+      <% end %>
 
     <% else %>
       <p class="home-message">アイコンを選択してメニューを開いて下さい</p>

@@ -11,17 +11,30 @@ html, body {
 
 .home-page-container {
   display: flex;
+  flex-direction: row;
   height: 100vh;
+
+  // @media (max-width: 768px) {
+  //   flex-direction: column;
+  // }
 }
 
 // side
 .sidebar {
-  width: 250px;
+  width: 100%;
+  max-width: 320px;
+  min-width: 280px;
   background: #f5f5f5;
   padding: 1rem;
   box-sizing: border-box;
   height: 100vh;
   overflow-y: auto;
+
+  // @media (max-width: 768px) {
+  //   width: 100%;
+  //   height: auto;
+  //   max-width: none;
+  // }
 }
 
 .icon-menu ul {
@@ -140,4 +153,10 @@ html, body {
   overflow-y: hidden !important;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
 }

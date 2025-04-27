@@ -1,3 +1,13 @@
-<div class="container">
-  <h1>layouts/credits/_index</h1>
+<div class="effect-list-container">
+  <div class="row gx-1 gy-5">
+    <% icons = { "dragon" => "dragon_cursor_effect", "apple-alt" => "newton_light_effect" } %>
+
+    <% icons.each do |icon_name, partial_name| %>
+      <div class="col-12 col-md-6">
+        <%= link_to home_path(mode: "credit", effect: partial_name), class: "effect-icon-box shadow d-flex justify-content-center align-items-center" do %>
+          <i class="fas fa-<%= icon_name %> fa-2x"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

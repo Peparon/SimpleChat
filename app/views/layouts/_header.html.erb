@@ -1,31 +1,48 @@
-<header class="simplechat-header py-3 bg-light shadow-sm position-relative d-flex align-items-center">
+<header class="simplechat-header py-3 bg-light shadow-sm position-relative d-flex align-items-center justify-content-between">
+  <!--モバイル用-->
+  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars fa-lg"></i>
+  </button>
+
   <!-- 左側のアイコン -->
-  <div class="header-icons d-flex gap-3 position-absolute start-0 ps-3">
+  <div class="header-icons d-none d-md-flex gap-3 position-absolute start-0 ps-3">
     <!-- 友人アイコン -->
     <%= link_to home_path(mode: "friends"), class: "icon-button" do %>
       <i class="fas fa-user"></i>
     <% end %>
-
     <!-- グループアイコン -->
     <%= link_to home_path(mode: "group"), class: "icon-button" do %>
       <i class="fas fa-users"></i>
     <% end %>
-
     <!-- 設定アイコン -->
     <%= link_to home_path(mode: "setting"), class: "icon-button" do %>
       <i class="fas fa-cog"></i>
     <% end %>
   </div>
-
   <!-- 中央のタイトル -->
   <h1 class="m-0 w-100 text-center">
     <%= link_to "SimpleChat", home_path, class: "app-title text-decoration-none" %>
   </h1>
-
   <!--クレジット-->
-  <div class="sidebar-item">
+  <div class="sidebar-item pe-3 d-none d-md-block">
     <%= link_to home_path(mode: "credit"), class: "icon-button" do %>
       <i class="fas fa-info-circle"></i>
     <% end %>
   </div>
 </header>
+
+<!--モバイルメニュー-->
+<div class="collapse d-md-none bg-light px-3 py-2" id="mobileMenu">
+  <%= link_to home_path(mode: "friends"), class: "d-block py-1 icon-botton" do %>
+    <i class="fas fa-user me-2"></i> 友人
+  <% end %>
+  <%= link_to home_path(mode: "group"), class: "d-block py-1 icon-botton" do %>
+    <i class="fas fa-users me-2"></i> グループ
+  <% end %>
+  <%= link_to home_path(mode: "setting"), class: "d-block py-1 icon-botton" do %>
+    <i class="fas fa-cog me-2"></i> 設定
+  <% end %>
+  <%= link_to home_path(mode: "credit"), class: "d-block py-1 icon-botton" do %>
+    <i class="fas fa-info-circle me-2"></i> Credit
+  <% end %>
+</div>

@@ -46,6 +46,8 @@ class HomesController < ApplicationController
     elsif params[:mode] == "setting"
       @user = current_user
     end
+
+    @effect = params[:effect]
   end
 
   def clean_old_rooms
