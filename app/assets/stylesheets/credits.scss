@@ -53,18 +53,85 @@
 
 // newton_light_bulb
 .newton_light_effect {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
   height: 300px;
-  margin-top: 50px;
+  margin-top: -33px;
+  max-width: 100%;
+  position: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18.5%;
+    height: 10px;
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .newton_light_effect {
+    transform: scale(0.7);
+    transform-origin: top center;
+  }
+
+  .string {
+    height: 100px;
+    margin: 0 10px;
+  }
+
+  .newton_light_effect::before {
+    width: 72%;
+    top: -7px;
+  }
 }
 
 .bulb {
   width: 40px;
-  height: 60px;
-  background: gold;
-  border-radius: 50% 50% 45% 45%;
-  margin: 0 10px;
+  height: 40px;
+  background-color: black;
+  border-radius: 50%;
+  margin: 0 2px;
   position: relative;
+  transform-origin: top center;
+}
+
+.string {
+  width: 2px;
+  height: 140px;
+  background-color: #333;
+  margin: 0 30px;
+}
+
+.swing-set {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 -11px;
+  transform-origin: top center;
+}
+
+.swing-set-side {
+  margin: 0 -2px;
+  transform-origin: top center;
+}
+
+.string-svg path {
+  stroke: #333;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.string-svg {
+  overflow: visible;
+  width: 2px;
+  height: 140px;
 }
