@@ -33,7 +33,7 @@ document.addEventListener('turbolinks:load', () => { // turbolinks:loadにする
 
   const animateString = (path, direction, duration = 1000) => {
     const startTime = performance.now(); // アニメーション開始時間
-    const maxOffset = direction === 'left' ? 20 : -20;
+    const maxOffset = direction === 'left' ? 10 : -10;
 
     const loop = (now) => {
       const elapsed = now - startTime;
