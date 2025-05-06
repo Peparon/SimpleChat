@@ -239,3 +239,27 @@
     height: 180px;
   }
 }
+
+// dog_cursor_effect
+#dog-cursor {
+  position: fixed;
+  top: -15px;
+  left: -25px;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s linear;
+
+  img {
+    width: 60px;
+    height: auto;
+    transition: transform 0.1s ease;
+  }
+}
+
+#dog-area {
+  width: 90%;
+  height: 70%;
+  margin: 35px auto;
+  position: relative;
+  background-color: #fafafa;
+}
