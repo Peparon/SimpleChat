@@ -1,4 +1,4 @@
-<% all_friends = friends.uniq.to_a %>
+<% all_friends = @friends.uniq.to_a %>
 <% if @selected_friend.present? %>
   <% all_friends.reject! { |f| f.id == @selected_friend.id } %>
   <% all_friends.unshift(@selected_friend) %>
