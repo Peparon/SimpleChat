@@ -63,6 +63,16 @@
   }
 }
 
+.dropdown-toggle-icon:focus,
+.dropdown-toggle-icon:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.z-index-fix {
+  z-index: 1050 !important;
+}
+
 .icon-botton {
   color: black !important;
   text-decoration: none;

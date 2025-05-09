@@ -14,9 +14,9 @@ html, body {
   flex-direction: row;
   height: 100vh;
 
-  // @media (max-width: 768px) {
-  //   flex-direction: column;
-  // }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 // side
@@ -30,11 +30,19 @@ html, body {
   height: 100vh;
   overflow-y: auto;
 
-  // @media (max-width: 768px) {
-  //   width: 100%;
-  //   height: auto;
-  //   max-width: none;
-  // }
+  @media (max-width: 768px) {
+    height: auto;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    min-width: unset;
+  }
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .icon-menu ul {
@@ -83,10 +91,10 @@ html, body {
   font-size: 1.2rem;
   font-weight: bold;
   color: #333;
-  padding-bottom: 1px solid #ccc;
   margin-bottom: 1rem;
   margin-bottom: 1rem;
   padding-left: 0.5rem;
+
   i {
     font-size: 1.5rem;
     color: #666;

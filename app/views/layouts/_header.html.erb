@@ -1,9 +1,4 @@
 <header class="simplechat-header py-3 bg-light shadow-sm position-relative d-flex align-items-center justify-content-between">
-  <!--モバイル用-->
-  <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-bars fa-lg"></i>
-  </button>
-
   <!-- 左側のアイコン -->
   <div class="header-icons d-none d-md-flex gap-3 position-absolute start-0 ps-3">
     <!-- 友人アイコン -->
@@ -29,20 +24,27 @@
       <i class="fas fa-info-circle"></i>
     <% end %>
   </div>
-</header>
 
-<!--モバイルメニュー-->
-<div class="collapse d-md-none bg-light px-3 py-2" id="mobileMenu">
-  <%= link_to home_path(mode: "friends"), class: "d-block py-1 icon-botton" do %>
-    <i class="fas fa-user me-2"></i> 友人
-  <% end %>
-  <%= link_to home_path(mode: "group"), class: "d-block py-1 icon-botton" do %>
-    <i class="fas fa-users me-2"></i> グループ
-  <% end %>
-  <%= link_to home_path(mode: "setting"), class: "d-block py-1 icon-botton" do %>
-    <i class="fas fa-cog me-2"></i> 設定
-  <% end %>
-  <%= link_to home_path(mode: "credit"), class: "d-block py-1 icon-botton" do %>
-    <i class="fas fa-info-circle me-2"></i> Credit
-  <% end %>
-</div>
+    <!--モバイル用-->
+  <div class="dropdown d-md-none ms-auto me-3">
+    <button class="btn btn-link p-0 border-0 dropdown-toggle-icon" type="button" id="mobileMenuToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-bars fa-lg text-dark"></i>
+    </button>
+
+    <!--モバイルメニュー-->
+    <div class="dropdown-menu dropdown-menu-right bg-light z-index-fix" aria-labelledby="mobileMenuToggle">
+      <%= link_to home_path(mode: "friends"), class: "dropdown-item" do %>
+        <i class="fas fa-user me-2"></i> 友人
+      <% end %>
+      <%= link_to home_path(mode: "group"), class: "dropdown-item" do %>
+        <i class="fas fa-users me-2"></i> グループ
+      <% end %>
+      <%= link_to home_path(mode: "setting"), class: "dropdown-item" do %>
+        <i class="fas fa-cog me-2"></i> 設定
+      <% end %>
+      <%= link_to home_path(mode: "credit"), class: "dropdown-item" do %>
+        <i class="fas fa-info-circle me-2"></i> Credit
+      <% end %>
+    </div>
+  </div>
+</header>
