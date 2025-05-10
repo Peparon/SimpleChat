@@ -18,6 +18,13 @@
   - Bootstrap（UI）
   - Sass-Rails（スタイル管理）
 
+## ER図
+![ER図](docs/images/er-diagram.jpg)
+
+---
+
+## インフラ構成図
+![インフラ構成図](docs/images/infra-diagram.jpg)
 
 ## 主な機能
 - ユーザー登録・ログイン機能（Deviseを使用）
