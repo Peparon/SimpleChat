@@ -21,8 +21,6 @@
 ## ER図
 ![ER図](docs/images/er-diagram.jpg)
 
----
-
 ## インフラ構成図
 ![インフラ構成図](docs/images/infra-diagram.jpg)
 
