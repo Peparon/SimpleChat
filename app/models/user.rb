@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 10 }
 
   before_create :generate_unique_friend_id
-  after_create :create_sample_chat_data
+  # after_create :create_sample_chat_data
 
   def approved_friends
     friends.merge(Friendship.where(status: 'approved')) + inverse_friends.merge(Friendship.where(status: 'approved'))
