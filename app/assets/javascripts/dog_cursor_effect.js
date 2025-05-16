@@ -5,6 +5,9 @@ document.addEventListener('turbolinks:load', () => {
 
   if (!dogCursor || !dogImage || !dogArea) return; // いずれかが見つからない場合は処理を終了
 
+  const walkImage = dogArea.dataset.walkImage;
+  const stayImage = dogArea.dataset.stayImage;
+
   let idleTimer; // 一定時間マウスが動かない時のタイマー
   let lastX = 0; // 前回マウスX座標
   let targetX = 0; // 追いかける目標のX座標
@@ -36,10 +39,10 @@ document.addEventListener('turbolinks:load', () => {
     targetX = x;
     targetY = y;
 
-    dogImage.src = "/assets/yorkie_walk.png"; // 歩いている画像に切り替え
+    dogImage.src = walkImage; // 歩いている画像に切り替え
     clearTimeout(idleTimer); // タイマーリセット（連続で動かした際にdog_stayにならないように）
     idleTimer = setTimeout(() => { // setTimeoutは一定時間動きが停止したらdog_stayに切り替え
-      dogImage.src = "/assets/yorkie_stay.png";
+      dogImage.src = stayImage;
     }, 800);
   });
 
