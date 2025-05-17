@@ -24,7 +24,7 @@
 
     <% elsif params[:mode] == "credit" %>
       <% if params[:effect].present? %>
-        <%= render "layouts/credits/#{params[:effect]}" rescue nil %>
+        <%= render partial: "layouts/credits/#{params[:effect]}" rescue nil %>
       <% else %>
         <%= render "layouts/credits/credit" %>
       <% end %>
