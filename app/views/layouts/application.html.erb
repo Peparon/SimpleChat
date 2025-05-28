@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body>
+  <body data-current-user-id="<%= current_user&.id %>">
     <%= render 'layouts/header' %>
 
     <%= yield %>

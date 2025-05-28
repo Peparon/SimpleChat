@@ -1,11 +1,11 @@
 <!--rooms/_index-->
 <% if @room.present? %>
-  <div id="chat-room-container" class="container-fluid p-0 d-flex flex-column">
+  <div id="chat-room-container" class="container-fluid p-0 d-flex flex-column" data-room-id="<%= @room.id %>">
     <div class="chat-header p-3 bg-white sticky-top">
       <h5 class="mb-0"><%= @selected_friend.name %>さん</h5>
     </div>
 
-    <div class="chat-messages border rounded shadow flex-grow-1 overflow-auto px-3 py-2" id="chat-messages">
+    <div class="chat-messages border rounded shadow flex-grow-1 overflow-auto px-3 py-2" id="chat-messages" data-room-id="<%= @room.id %>">
       <% @messages.each do |message| %>
         <div class="d-flex flex-column <%= message.user == current_user ? 'align-items-end' : 'align-items-start' %>">
           <div class="chat-bubble <%= message.user == current_user ? 'my-message' : 'other-message' %>">

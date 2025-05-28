@@ -8,6 +8,10 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        ActionCable.server.broadcast(
+          "room_#{@room.id}",
+          message: render_to_string(partial: "messages/message", locals: { message: @message }), user_id: @message.user_id
+        )
         format.js
       else
         format.js { render js: "alert('メッセージを送信できませんでした');" }

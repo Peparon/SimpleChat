@@ -1,0 +1,7 @@
+<!--messages/_message-->
+<div class="d-flex flex-column message-wrapper" data-user-id="<%= message.user_id %>">
+  <div class="chat-bubble">
+    <p class="mb-0"><%= j message.content %></p>
+  </div>
+  <small class="text-muted text-end d-block mt-1"><%= message.created_at.strftime("%H:%M") %></small>
+</div>
