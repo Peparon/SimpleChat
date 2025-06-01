@@ -45,8 +45,8 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
 
   # 本番環境でaction_cableを使用するために追加
-  config.action_cable.url = 'wss://54.65.122.30/cable'
-  config.action_cable.allowed_request_origins = [ "http://54.65.122.30", "https://54.65.122.30" ]
+  config.action_cable.url = 'ws://54.65.122.30/cable'
+  config.action_cable.allowed_request_origins = [ "http://54.65.122.30" ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
