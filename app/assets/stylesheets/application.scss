@@ -63,6 +63,19 @@
   }
 }
 
+@media (max-width: 768px) {
+  .simplechat-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+  }
+  body {
+    padding-top: 85px;
+  }
+}
+
 .dropdown-toggle-icon:focus,
 .dropdown-toggle-icon:active {
   outline: none;

@@ -1,27 +1,40 @@
+<!--homes/_sidebar-->
 <% current_mode = params[:mode] || (params[:effect].present? ? "credit" : nil) %>
-<!--<div class="sidebar-overlay" id="sidebar-overlay"></div>-->
-<div class="collapse d-md-block" id="sidebarCollapse">
+<!--partialモードの選択-->
+<!--<%# is_rooms_index = params[:mode] == "friends" && !@show_friend_search %>-->
+<!--モバイル用（close）-->
+<div class="text-left d-md-none fixed-sidebar-toggle">
+  <button class="btn p-0 border-0" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-expanded="false" aria-controls="sidebarCollapse">
+    <i class="fas fa-caret-right text-dark"></i>
+  </button>
+</div>
+
+<div class="mobile-sidebar d-md-block" id="sidebarCollapse">
   <div class="sidebar">
     <div class="sidebar-header">
-      <% if current_mode == "friends" %>
-        <div class="sidebar-title-row">
-          <span class="sidebar-title"><i class="fas fa-user"></i> 友人</span>
-          <%= link_to home_path(mode: "friends", submode: "search"), class: "add-icon" do %>
-            <i class="fas fa-plus-circle"></i>
-          <% end %>
+      <div class="sidebar-title-row">
+        <% if current_mode == "friends" %>
+            <span class="sidebar-title"><i class="fas fa-user"></i> 友人</span>
+            <%= link_to home_path(mode: "friends", submode: "search"), class: "add-icon" do %>
+              <i class="fas fa-plus-circle"></i>
+            <% end %>
+        <% elsif current_mode == "group" %>
+            <span class="sidebar-title"><i class="fas fa-users"></i> グループ</span>
+            <div class="add-icon">
+              <i class="fas fa-plus-circle"></i>
+            </div>
+        <% elsif current_mode == "setting" %>
+          <span class="sidebar-title"><i class="fas fa-cog"></i> ユーザー設定</span>
+        <% elsif current_mode == "credit" %>
+          <span class="sidebar-title"><i class="fas fa-info-circle"></i> CREDIT</span>
+        <% end %>
+        <!--モバイル用（open）-->
+        <div class="d-md-none">
+          <button class="btn p-0 border-0" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-expanded="true" aria-controls="sidebarCollapse">
+            <i class="fas fa-caret-left text-dark"></i>
+          </button>
         </div>
-      <% elsif current_mode == "group" %>
-        <div class="sidebar-title-row">
-          <span class="sidebar-title"><i class="fas fa-users"></i> グループ</span>
-          <div class="add-icon">
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      <% elsif current_mode == "setting" %>
-        <span class="sidebar-title"><i class="fas fa-cog"></i> ユーザー設定</span>
-      <% elsif current_mode == "credit" %>
-        <span class="sidebar-title"><i class="fas fa-info-circle"></i> CREDIT</span>
-      <% end %>
+      </div>
     </div>
 
     <div class="sidebar-content">
@@ -45,10 +58,6 @@
     </div>
   </div>
 </div>
-
-<!--モバイル用-->
-<div class="mobile-header text-right d-md-none p-2">
-  <button class="btn p-0 border-0" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-expanded="false" area-controls="sidebarCollapse">
-    <i class="fas fa-caret-down text-dark"></i>
-  </button>
-</div>
+<!--中の特定の表示の無効化-->
+<!--<%# unless is_rooms_index %>-->
+<!--<%# end %>-->

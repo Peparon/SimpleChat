@@ -1,4 +1,6 @@
-<div class="home-page-container home-no-scroll">
+<!--homes/home-->
+<!--モバイルサイズrooms/_indexでスクロールを禁止＝「no_scroll_lock?」がtrueの時だけno-scrollクラスを追加-->
+<div class="home-page-container <%= 'no-scroll' if no_scroll_lock? %>">
   <%= render partial: "homes/sidebar" %>
 
   <div class="main-content">
