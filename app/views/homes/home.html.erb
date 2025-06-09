@@ -11,7 +11,7 @@
       </div>
 
     <% elsif params[:mode] == "setting" && params[:submode] == "edit" %>
-      <%= render "users/show", user: current_user %>
+      <%#= render "users/show", user: current_user %>
       <%= render "devise/registrations/edit", user: current_user %>
 
     <% elsif params[:mode] == "setting" %>
