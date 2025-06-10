@@ -6,6 +6,10 @@
   background-color: #fff;
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 .credit-title {
@@ -14,6 +18,10 @@
   margin-bottom: 1.5rem;
   text-align: center;
   color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 }
 
 .credit-message {
@@ -21,12 +29,22 @@
   line-height: 1.8;
   margin-bottom: 1.5rem;
   color: #555;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 .caution-message {
   text-align: center;
   color: red;
   font-size: 0.9rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
 }
 
 // index
