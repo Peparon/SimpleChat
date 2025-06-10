@@ -9,6 +9,7 @@
           <%= hidden_field_tag :submode, "search" %>
           <div class="form-group">
             <%= label_tag :friend_id, "検索したい友人のIDを入力して下さい" %><br />
+            <strong>MyID：</strong><%= current_user.friend_id %><br />
             <%= text_field_tag :friend_id, params[:friend_id], class: "search-input" %>
             <%= submit_tag "検索する", class: "btn btn-secondary" %>
           </div>
