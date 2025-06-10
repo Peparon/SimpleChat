@@ -42,8 +42,13 @@
 .btn-signup {
   background-color: #2196F3;
 }
-.btn-93 {
-  width: 93%;
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.submit-button {
+  width: 100%;
+  max-width: 400px;
 }
 
 // header
