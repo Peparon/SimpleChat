@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container d-flex justify-content-center align-items-center vh-90">
   <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
     <h2 class="text-center mb-4">アカウント作成</h2>
 
@@ -20,12 +20,22 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %><br />
-        <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+        <div class="position-relative">
+          <%= f.password_field :password, class: "form-control", autocomplete: "new-password", id: "signup-password" %>
+          <span id="toggle-signup-password" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: position;">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
       </div>
 
       <div class="mb-4">
         <%= f.label :password_confirmation, "パスワード再確認", class: "form-label" %><br />
-        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+        <div class="position-relative">
+          <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", id: "signup-password-confirmation" %>
+          <span id="toggle-signup-password-confirmation" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: position;">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
       </div>
 
       <div class="d-grid mb-3">

@@ -19,7 +19,12 @@
             <div class="mb-3">
               <%= f.label :password, "新しいパスワード", class: "form-label" %><br />
               <small>(変更しない場合は空白のままにして下さい)</small>
-              <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+              <div class="position-relative">
+                <%= f.password_field :password, class: "form-control", autocomplete: "new-password", id: "password-field" %>
+                <span id="toggle-password" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: position;">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
               <% if @minimum_password_length %>
                 <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
               <% end %>
@@ -27,13 +32,23 @@
 
             <div class="mb-3">
               <%= f.label :password_confirmation, "新しいパスワード再確認", class: "form-label" %>
-              <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+              <div class="position-relative">
+                <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password", id: "password-confirmation-field" %>
+                <span id="toggle-password-confirmation" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: position;">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
             </div>
 
             <div class="mb-3">
               <%= f.label :current_password, "現在のパスワードを入力して下さい", class: "form-label" %><br />
               <small>(変更する場合は入力必須！)</small>
-              <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
+              <div class="position-relative">
+                <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password", id: "current-password-field" %>
+                <span id="toggle-current-password" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: position;">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
             </div>
 
             <div class="button-wrapper">

@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container d-flex justify-content-center align-items-center vh-90">
   <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
     <h2 class="text-center mb-4">ログイン</h2>
 
@@ -10,7 +10,12 @@
 
       <div class="mb-3">
         <%= f.label :password, "パスワード", class: "form-label" %><br />
-        <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+        <div class="position-relative">
+          <%= f.password_field :password, class: "form-control", autocomplete: "current-password", id: "signin-password" %>
+          <span id="toggle-signin-password" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: position;">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
       </div>
 
       <% if devise_mapping.rememberable? %>
